@@ -1,0 +1,134 @@
+:root {
+    --bg: #050505;
+    --panel: #111112;
+    --cyan: #00f2ff;
+    --yellow: #ffea00;
+    --red: #ff3e3e;
+    --text: #e0e0e0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Barra superior */
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+/* Filtros y leyenda */
+.filter-panel, .legend {
+    position: absolute;
+    top: 60px;
+    z-index: 10;
+}
+.filter-panel {
+    left: 20px;
+    width: 250px;
+    background: rgba(17,17,18,0.95);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--cyan);
+}
+.legend {
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+}
+
+/* Horario */
+#schedule-drawer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 280px;
+    background: var(--panel);
+    border-top: 2px solid var(--cyan);
+    z-index: 20;
+    transition: height 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    flex: 1;
+    overflow-y: auto;
+    gap: 1px;
+    background: #222;
+}
+.header-cell, .time-cell {
+    background: #1a1a1a;
+    padding: 8px;
+    text-align: center;
+    color: var(--cyan);
+    font-size: 0.75rem;
+}
+.time-cell {
+    background: #0a0a0a;
+    font-size: 0.7rem;
+    color: #888;
+}
+.slot {
+    background: var(--bg);
+    min-height: 55px;
+    padding: 5px;
+    position: relative;
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+}
+.class-card {
+    background: rgba(0,242,255,0.1);
+    border-left: 3px solid var(--cyan);
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+/* Canvas 3D */
+#canvas-container {
+    width: 100%;
+    height: calc(100% - 280px);
+    transition: height 0.4s ease;
+}
+
+/* Modal */
+#add-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #111112;
+    width: 480px;
+    border-radius: 12px;
+    padding: 25px;
+    border: 2px solid var(--cyan);
+}
