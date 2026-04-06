@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Campus - Docente</title>
+    <title>Gestion de aulas UMA - Estudiante</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -13,16 +13,11 @@
 <body>
 
 <nav>
-    <div style="color:#ffaa00; font-weight:bold;">👨‍🏫 Docente</div>
-    <div>Modelo 3D + Gestión de Clases</div>
-    <div>
-        <button onclick="toggleSchedule()" id="max-btn" style="background:var(--cyan); color:#000; padding:8px 20px; border:none; border-radius:6px; font-weight:bold;">
-            <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
-        </button>
-        <button onclick="openAddModal()" style="margin-left:10px; background:#333; color:white; padding:8px 20px; border:none; border-radius:6px; font-weight:bold;">
-            <i class="fas fa-plus"></i> Nueva Clase
-        </button>
-    </div>
+    <div style="color:var(--cyan); font-weight:bold;">👨‍🎓 Estudiante</div>
+    <div>Modelo 3D + Horarios</div>
+    <button onclick="toggleSchedule()" id="max-btn" style="background:var(--cyan); color:#000; padding:8px 20px; border:none; border-radius:6px; font-weight:bold;">
+        <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
+    </button>
 </nav>
 
 <div class="filter-panel">
@@ -31,13 +26,6 @@
         <option value="all">Todas las Carreras</option>
         <option value="ing">Ingeniería</option>
         <option value="arq">Arquitectura</option>
-    </select>
-    <label style="font-size:0.75rem;color:#888;">FILTRAR DOCENTE</label>
-    <select id="docente-select" onchange="updateSchedule()">
-        <option value="all">Todos los Docentes</option>
-        <option value="gonzalez">Dr. González</option>
-        <option value="perez">Dra. Pérez</option>
-        <option value="ruiz">Ing. Ruiz</option>
     </select>
 </div>
 
@@ -49,26 +37,6 @@
 
 <div id="canvas-container"></div>
 <div id="schedule-drawer"><div class="schedule-grid" id="grid"></div></div>
-
-<div id="add-modal">
-    <div class="modal-content">
-        <h3 style="color:var(--cyan); text-align:center; margin-bottom:20px;">Agregar Nueva Clase</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-            <div><label>Día</label><select id="modal-day" style="width:100%;padding:10px;background:#222;color:white;border:1px solid #555;border-radius:6px;"></select></div>
-            <div><label>Hora</label><select id="modal-time" style="width:100%;padding:10px;background:#222;color:white;border:1px solid #555;border-radius:6px;"></select></div>
-        </div>
-        <label style="display:block;margin:15px 0 5px;">Aula</label>
-        <select id="modal-room" style="width:100%;padding:10px;background:#222;color:white;border:1px solid #555;border-radius:6px;"></select>
-        <label style="display:block;margin:15px 0 5px;">Docente</label>
-        <input id="modal-teacher" type="text" placeholder="Nombre del docente" value="Dr. González" style="width:100%;padding:12px;background:#222;color:white;border:1px solid #555;border-radius:6px;">
-        <label style="display:block;margin:15px 0 5px;">Materia</label>
-        <input id="modal-subject" type="text" placeholder="Ej: Programación Avanzada" style="width:100%;padding:12px;background:#222;color:white;border:1px solid #555;border-radius:6px;">
-        <div style="display:flex; gap:12px; margin-top:25px;">
-            <button onclick="saveNewClass()" style="flex:1;background:var(--cyan);color:#000;padding:14px;border:none;border-radius:8px;font-weight:bold;">Guardar Clase</button>
-            <button onclick="closeAddModal()" style="flex:1;background:#333;color:white;padding:14px;border:none;border-radius:8px;">Cancelar</button>
-        </div>
-    </div>
-</div>
 
 <script src="script.js"></script>
 </body>
