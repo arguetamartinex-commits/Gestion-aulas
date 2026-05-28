@@ -14,7 +14,7 @@
 
 <nav>
     <div style="color:#ffaa00; font-weight:bold;">👨‍🏫 Docente</div>
-    <div>Modelo 3D + Gestión de Clases</div>
+    <div>Gestión de Clases:</div>
     <div>
         <button onclick="toggleSchedule()" id="max-btn" style="background:var(--cyan); color:#000; padding:8px 20px; border:none; border-radius:6px; font-weight:bold;">
             <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
@@ -29,8 +29,8 @@
     <label style="font-size:0.75rem;color:#888;">FILTRAR CARRERA</label>
     <select id="carrera-select" onchange="updateSchedule()">
         <option value="all">Todas las Carreras</option>
-        <option value="ing">Ingeniería</option>
-        <option value="arq">Arquitectura</option>
+        <option value="lic">Licenciatura en informatica</option>
+        <option value="tecn">Tecnico en software</option>
     </select>
     <label style="font-size:0.75rem;color:#888;">FILTRAR DOCENTE</label>
     <select id="docente-select" onchange="updateSchedule()">
@@ -41,10 +41,19 @@
     </select>
 </div>
 
-<div class="legend">
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="width:12px;height:12px;background:var(--cyan);display:block;"></span> Planta Activa</div>
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="width:12px;height:12px;background:var(--yellow);display:block;"></span> Aula Seleccionada</div>
-    <div style="display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--red);display:block;"></span> Escaleras</div>
+<div class="legend" style="background: rgba(20, 20, 23, 0.95); border: 1px solid #27272a; padding: 12px; border-radius: 8px; font-size: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#00f2ff; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(0, 242, 255, 0.6);"></span> 
+        Planta Activa
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#ffea00; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(255, 234, 0, 0.6);"></span> 
+        Aula Seleccionada
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#ff3e3e; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(255, 62, 62, 0.6);"></span> 
+        Escaleras
+    </div>
 </div>
 
 <div id="canvas-container"></div>
