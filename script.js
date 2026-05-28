@@ -1,8 +1,8 @@
 // ==================== DATOS ====================
 const scheduleData = [
-    { id: 1, day: 1, time: 8, subject: 'Sistemas Digitales', room: 'CC-1', floor: 1, carrera: 'ing', teacher: 'gonzalez' },
-    { id: 2, day: 2, time: 10, subject: 'Taller de Diseño', room: 'B-6', floor: 2, carrera: 'arq', teacher: 'perez' },
-    { id: 3, day: 3, time: 8, subject: 'Cálculo Avanzado', room: 'C-2', floor: 3, carrera: 'ing', teacher: 'ruiz' }
+    { id: 1, day: 1, time: 8, subject: 'Sistemas Digitales', room: 'CC-1', floor: 1, carrera: 'lic', teacher: 'gonzalez' },
+    { id: 2, day: 2, time: 10, subject: 'Taller de Diseño', room: 'B-6', floor: 2, carrera: 'tecn', teacher: 'perez' },
+    { id: 3, day: 3, time: 8, subject: 'Cálculo Avanzado', room: 'C-2', floor: 3, carrera: 'lic', teacher: 'ruiz' }
 ];
 
 const dayNames = {1:'LUNES',2:'MARTES',3:'MIÉRCOLES',4:'JUEVES',5:'VIERNES',6:'SÁBADO',7:'DOMINGO'};
@@ -90,7 +90,7 @@ function focusRoom(roomName, floorLevel) {
     if(target) target.material.color.setHex(0xffea00);
 }
 
-// ==================== HORARIOS Y MODAL ====================
+// ==================== HORARIOS Y MODELO ====================
 function openAddModal() {
     const modal = document.getElementById('add-modal');
     const daySelect = document.getElementById('modal-day');
