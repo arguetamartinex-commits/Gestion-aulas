@@ -3,42 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion de aulas UMA - Iniciar Sesión</title>
+    <title>Gestión de Aulas UMA - Iniciar Sesión</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #0a0a1f, #1a1a44);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container { text-align: center; }
-        h1 { font-size: 48px; margin-bottom: 10px; color: #00f2ff; }
-        p { font-size: 20px; color: #88ddff; margin-bottom: 60px; }
-        .btn {
-            display: inline-block; width: 340px; margin: 15px; padding: 28px 30px;
-            border-radius: 16px; font-size: 24px; font-weight: 700; text-decoration: none;
-            transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .estudiante { background: linear-gradient(90deg, #00b8cc, #00f2ff); color: #001122; }
-        .docente { background: linear-gradient(90deg, #ff8800, #ffbb00); color: #001122; }
-        .btn:hover { transform: scale(1.08); }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Gestion de aulas UMA San Miguel</h1>
-        <p>Selecciona tu rol para continuar</p>
-        
-        <a href="estudiante.html" class="btn estudiante">
-            👨‍🎓 Soy Estudiante
-        </a>
-        <br>
-        <a href="docente.html" class="btn docente">
-            👨‍🏫 Soy Docente
-        </a>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo UMA -->
+            <div class="logo-uma">
+                <!-- <img src="uma-logo.png" alt="UMA Logo" class="logo-img"> -->
+                <h1>UNIVERSIDAD MODULAR ABIERTA</h1>
+                <p>San Miguel - Gestión de Aulas</p>
+            </div>  
+
+            <h2>¿Cuál es tu rol?</h2>
+
+            <div class="role-buttons">
+                <button class="btn-role estudiante" onclick="openModal('estudiante')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Soy Estudiante</span>
+                </button>
+
+                <button class="btn-role docente" onclick="openModal('docente')">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <span>Soy Docente</span>
+                </button>
+            </div>
+
+            <div class="admin-hint">
+              <small>Usuario Admin: <strong>admin</strong> / <strong>admin123</strong></small>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal Estudiante -->
+    <div id="modal-estudiante" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('estudiante')">×</button>
+            <div class="modal-header estudiante">
+                <h2>👨‍🎓 Estudiante</h2>
+            </div>
+            <div id="error-estudiante" class="error-message"></div>
+            
+            <form onsubmit="handleLogin(event, 'estudiante')">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="user-estudiante" placeholder="ej: usuario1" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="pass-estudiante" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Docente -->
+    <div id="modal-docente" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('docente')">×</button>
+            <div class="modal-header docente">
+                <h2>👨‍🏫 Docente</h2>
+            </div>
+            <div id="error-docente" class="error-message"></div>
+            
+            <form onsubmit="handleLogin(event, 'docente')">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" id="user-docente" placeholder="ej: docente1" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="pass-docente" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        function openModal(role) {
+            document.getElementById(`modal-${role}`).classList.add('active');
+            document.getElementById(`user-${role}`).focus();
+        }
+
+        function closeModal(role) {
+            document.getElementById(`modal-${role}`).classList.remove('active');
+        }
+
+        // Cerrar modal al hacer clic fuera
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', e => {
+                if (e.target === modal) closeModal(modal.id.replace('modal-', ''));
+            });
+        });
+    </script>
 </body>
 </html>
