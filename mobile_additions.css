@@ -1,251 +1,81 @@
 
 
 @media (max-width: 768px) {
-    /* ===== NAVEGACIÓN ===== */
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 8px 12px;
-        gap: 8px;
-        justify-content: center;
-    }
-    
-    nav > div:first-child {
-        font-size: 0.85rem;
-        text-align: center;
-    }
-    
-    nav > div:nth-child(2) {
-        font-size: 0.75rem;
-        text-align: center;
-    }
-    
-    nav button {
-        width: 100%;
-        padding: 8px 12px !important;
-        font-size: 0.75rem;
-        margin: 0 !important;
-    }
-    
-    /* ===== FILTROS ===== */
-    .filter-panel {
-        position: static !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 8px auto !important;
-        left: auto !important;
-        top: auto !important;
-        padding: 8px !important;
-    }
-    
-    .filter-panel select {
-        font-size: 0.75rem;
-        padding: 6px;
-        margin-bottom: 8px;
-    }
-    
-    /* ===== LEYENDA ===== */
-    .legend {
-        position: static !important;
-        right: auto !important;
-        top: auto !important;
-        width: 100% !important;
-        max-width: none !important;
-        margin: 8px auto !important;
-        padding: 8px !important;
-        font-size: 0.65rem !important;
-    }
-    
-    .legend > div {
-        margin-bottom: 4px !important;
-        gap: 6px !important;
-    }
-    
-    /* ===== CANVAS 3D ===== */
-    #canvas-container {
-        height: calc(100% - 140px) !important;
-        transition: height 0.4s ease;
-    }
-    
-    /* ===== SCHEDULE DRAWER ===== */
-    #schedule-drawer {
-        height: 140px !important;
-        transition: height 0.4s ease;
-    }
-    
+    /* SOLO ajustar tamaño de fuente del grid */
     .schedule-grid {
-        grid-template-columns: 50px repeat(4, 1fr) !important;
-        gap: 0px;
+        grid-template-columns: 50px repeat(5, 1fr) !important;
+        font-size: 0.7rem;
         overflow-x: auto;
         overflow-y: hidden;
-        padding-bottom: 10px;
+    }
+    
+    .header-cell {
+        font-size: 0.65rem;
+        padding: 6px 2px;
+        min-height: 32px;
+    }
+    
+    .time-cell {
+        font-size: 0.65rem;
+        padding: 6px 2px;
+        min-height: 32px;
+    }
+    
+    .slot {
+        min-height: 32px;
+        padding: 3px;
+    }
+    
+    .class-card {
+        font-size: 0.6rem;
+        padding: 4px;
+    }
+    
+    /* Ocultar sábado y domingo en móviles (mostrar solo Lunes a Viernes) */
+    .schedule-grid > :nth-child(8n+8),
+    .schedule-grid > :nth-child(8n+9) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-grid {
+        grid-template-columns: 45px repeat(3, 1fr) !important;
+        font-size: 0.65rem;
     }
     
     .header-cell {
         font-size: 0.6rem;
-        padding: 4px 2px;
-        min-height: 35px;
+        padding: 4px 1px;
+        min-height: 28px;
     }
     
     .time-cell {
         font-size: 0.6rem;
-        padding: 4px 2px;
-        min-height: 35px;
+        padding: 4px 1px;
+        min-height: 28px;
     }
     
     .slot {
-        min-height: 35px;
+        min-height: 28px;
         padding: 2px;
-        font-size: 0.55rem;
     }
     
     .class-card {
         font-size: 0.55rem;
         padding: 3px;
-        border-left-width: 2px;
-    }
-    
-    .class-card strong {
-        display: block;
-        margin-bottom: 2px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* ===== LAYOUT ULTRA COMPACTO ===== */
-    body, html {
-        font-size: 12px;
-    }
-    
-    /* ===== NAVEGACIÓN ===== */
-    nav {
-        padding: 6px;
-        gap: 6px;
-        height: auto;
-    }
-    
-    nav > div:first-child {
-        font-size: 0.75rem;
-    }
-    
-    nav > div:nth-child(2) {
-        font-size: 0.65rem;
-    }
-    
-    nav button {
-        padding: 6px 10px !important;
-        font-size: 0.65rem !important;
-    }
-    
-    nav button i {
-        font-size: 0.85rem !important;
-    }
-    
-    /* ===== FILTROS COMPACTOS ===== */
-    .filter-panel {
-        padding: 6px !important;
-        margin: 6px auto !important;
-    }
-    
-    .filter-panel label {
-        font-size: 0.6rem !important;
-        margin-bottom: 3px !important;
-    }
-    
-    .filter-panel select {
-        font-size: 0.65rem;
-        padding: 4px;
-        margin-bottom: 6px;
-    }
-    
-    /* ===== LEYENDA COMPACTA ===== */
-    .legend {
-        padding: 6px !important;
-        margin: 6px auto !important;
-        font-size: 0.58rem !important;
-    }
-    
-    .legend > div {
-        margin-bottom: 3px !important;
-        gap: 4px !important;
-    }
-    
-    .legend span {
-        width: 8px !important;
-        height: 8px !important;
-    }
-    
-    /* ===== CANVAS MÓVIL ===== */
-    #canvas-container {
-        height: calc(100% - 120px) !important;
-        min-height: 180px !important;
-    }
-    
-    /* ===== HORARIO EN SCROLL HORIZONTAL ===== */
-    #schedule-drawer {
-        height: 120px !important;
-    }
-    
-    .schedule-grid {
-        grid-template-columns: 40px repeat(3, 1fr) !important;
-        font-size: 0.6rem;
-    }
-    
-    .header-cell {
-        font-size: 0.55rem;
-        padding: 2px 1px;
-        min-height: 28px;
-    }
-    
-    .time-cell {
-        font-size: 0.55rem;
-        padding: 2px 1px;
-        min-height: 28px;
-    }
-    
-    .slot {
-        min-height: 28px;
-        padding: 1px;
-    }
-    
-    .class-card {
-        font-size: 0.5rem;
-        padding: 2px;
-        line-height: 1.1;
+        line-height: 1.2;
     }
     
     .class-card strong {
         display: block;
         margin-bottom: 1px;
     }
-    
-    .class-card span {
-        display: block;
-        font-size: 0.45rem !important;
-    }
 }
 
-/* ===== LANDSCAPE MODE ===== */
 @media (max-height: 500px) {
-    nav {
-        height: auto;
-        flex-direction: row;
-        padding: 6px;
-    }
-    
-    nav > div {
-        font-size: 0.7rem;
-    }
-    
-    #schedule-drawer {
-        height: 100px !important;
-    }
-    
-    #canvas-container {
-        height: calc(100% - 56px) !important;
-    }
-    
+    /* Landscape mode */
     .schedule-grid {
-        grid-template-columns: 40px repeat(3, 1fr) !important;
+        grid-template-columns: 45px repeat(4, 1fr) !important;
     }
 }
