@@ -162,3 +162,24 @@ nav > div {
         font-size: 0.65rem;
     }
 }
+/* Corrección de modales */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* Evitar que se superpongan */
+.login-card {
+    z-index: 1;
+    position: relative;
+}
