@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Aulas UMA - Estudiante</title>
+    <title>Gestión de Aulas UMA - Docente</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -11,11 +11,16 @@
 </head>
 <body>
     <nav>
-        <div style="color:var(--uma-gold); font-weight:bold;">👨‍🎓 Estudiante</div>
-        <div>Horarios de la semana:</div>
-        <button onclick="toggleSchedule()" id="max-btn">
-            <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
-        </button>
+        <div style="color:var(--uma-gold); font-weight:bold;">👨‍🏫 Docente</div>
+        <div>Gestión de Clases:</div>
+        <div>
+            <button onclick="toggleSchedule()" id="max-btn">
+                <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
+            </button>
+            <button onclick="openAddModal()">
+                <i class="fas fa-plus"></i> Nueva Clase
+            </button>
+        </div>
     </nav>
 
     <div class="filter-panel">
@@ -24,6 +29,14 @@
             <option value="all">Todas las Carreras</option>
             <option value="lic">Licenciatura en Informática</option>
             <option value="tecn">Técnico en Software</option>
+        </select>
+
+        <label>FILTRAR DOCENTE</label>
+        <select id="docente-select" onchange="updateSchedule()">
+            <option value="all">Todos los Docentes</option>
+            <option value="gonzalez">Dr. González</option>
+            <option value="perez">Dra. Pérez</option>
+            <option value="ruiz">Ing. Ruiz</option>
         </select>
     </div>
 
@@ -36,6 +49,33 @@
     <div id="canvas-container"></div>
     <div id="schedule-drawer">
         <div class="schedule-grid" id="grid"></div>
+    </div>
+
+    <div id="add-modal">
+        <div class="modal-content">
+            <h3>Agregar Nueva Clase</h3>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div>
+                    <label>Día</label>
+                    <select id="modal-day"></select>
+                </div>
+                <div>
+                    <label>Hora</label>
+                    <select id="modal-time"></select>
+                </div>
+            </div>
+            <label>Aula</label>
+            <select id="modal-room"></select>
+            <label>Docente</label>
+            <input id="modal-teacher" type="text" value="Dr. González">
+            <label>Materia</label>
+            <input id="modal-subject" type="text" placeholder="Nombre de la materia">
+            
+            <div style="margin-top:20px; display:flex; gap:10px;">
+                <button onclick="saveNewClass()" style="flex:1;">Guardar Clase</button>
+                <button onclick="closeAddModal()" style="flex:1; background:#333;">Cancelar</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
