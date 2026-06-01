@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Aulas UMA - Estudiante</title>
+    <title>Gestion de aulas UMA - Estudiante</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div style="color:var(--uma-gold); font-weight:bold;">👨‍🎓 Estudiante</div>
-        <div>Horarios de la semana:</div>
-        <button onclick="toggleSchedule()" id="max-btn">
-            <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
-        </button>
-    </nav>
+<body class="dashboard-body"></body>
+<nav>
+    <div style="color:var(--cyan); font-weight:bold;">👨‍🎓 Estudiante</div>
+    <div>Horarios de la semana:</div>
+    <button onclick="toggleSchedule()" id="max-btn" style="background:var(--cyan); color:#000; padding:8px 20px; border:none; border-radius:6px; font-weight:bold;">
+        <i class="fas fa-expand"></i> <span id="btn-text">Maximizar 3D</span>
+    </button>
+</nav>
 
-    <div class="filter-panel">
-        <label>FILTRAR CARRERA</label>
-        <select id="carrera-select" onchange="updateSchedule()">
-            <option value="all">Todas las Carreras</option>
-            <option value="lic">Licenciatura en Informática</option>
-            <option value="tecn">Técnico en Software</option>
-        </select>
+<div class="filter-panel">
+    <label style="font-size:0.75rem;color:#888;">FILTRAR CARRERA</label>
+    <select id="carrera-select" onchange="updateSchedule()">
+        <option value="all">Todas las Carreras</option>
+        <option value="lic">Licenciatura en informatica</option>
+        <option value="tecn">Tecnico en software</option>
+    </select>
+</div>
+
+<div class="legend" style="background: rgba(20, 20, 23, 0.95); border: 1px solid #27272a; padding: 12px; border-radius: 8px; font-size: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#00f2ff; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(0, 242, 255, 0.6);"></span> 
+        Planta Activa
     </div>
-
-    <div class="legend">
-        <div><span style="background:#00f2ff"></span> Planta Activa</div>
-        <div><span style="background:#ffea00"></span> Aula Seleccionada</div>
-        <div><span style="background:#ff3e3e"></span> Escaleras</div>
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#ffea00; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(255, 234, 0, 0.6);"></span> 
+        Aula Seleccionada
     </div>
-
-    <div id="canvas-container"></div>
-    <div id="schedule-drawer">
-        <div class="schedule-grid" id="grid"></div>
+    <div style="display:flex; align-items:center; gap:10px; color:#f4f4f7;">
+        <span style="width:12px; height:12px; background:#ff3e3e; display:block; border-radius:3px; box-shadow: 0 0 8px rgba(255, 62, 62, 0.6);"></span> 
+        Escaleras
     </div>
+</div>
 
-    <script src="script.js"></script>
+<div id="canvas-container"></div>
+<div id="schedule-drawer"><div class="schedule-grid" id="grid"></div></div>
+
+<script src="script.js"></script>
 </body>
 </html>
