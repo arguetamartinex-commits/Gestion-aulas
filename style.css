@@ -3,9 +3,9 @@
     /* Paleta Base - Adaptada a la Identidad UMA */
     --bg: #0b0b0d;
     --panel: #141417;
-    --cyan: #C62828;        /* El acento principal de la app (antiguo cyan) ahora es el Rojo UMA */
-    --yellow: #FFB300;      /* El Amarillo Oro de la UMA */
-    --red: #9e1c1c;         /* Rojo complementario oscuro para elementos secundarios (como escaleras) */
+    --cyan: #C62828;        
+    --yellow: #FFB300;      
+    --red: #9e1c1c;      
     --text: #f4f4f7;
     --text-muted: #a1a1aa;
     
@@ -124,7 +124,7 @@ nav button#max-btn:hover {
     background: #18181b;
     padding: 8px;
     text-align: center;
-    color: var(--yellow); /* Oro UMA para encabezados legibles y corporativos */
+    color: var(--yellow); 
     font-size: 0.75rem;
     font-weight: 600;
     display: flex;
@@ -182,7 +182,7 @@ nav button#max-btn:hover {
 }
 
 /* ==========================================================================
-   DISEÑO EXCLUSIVO Y ELEGANTE PARA EL INICIO DE SESIÓN (index.html)
+   DISEÑO PARA EL INICIO DE SESIÓN (index.html)
    ========================================================================== */
 .login-container {
     position: fixed;
