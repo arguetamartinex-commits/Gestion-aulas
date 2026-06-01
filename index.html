@@ -10,9 +10,7 @@
 <body>
     <div class="login-container">
         <div class="login-card">
-            <!-- Logo UMA -->
             <div class="logo-uma">
-                <!-- <img src="uma-logo.png" alt="UMA Logo" class="logo-img"> -->
                 <h1>UNIVERSIDAD MODULAR ABIERTA</h1>
                 <p>San Miguel - Gestión de Aulas</p>
             </div>  
@@ -30,10 +28,6 @@
                     <span>Soy Docente</span>
                 </button>
             </div>
-
-            <!-- <div class="admin-hint">
-             <small>Usuario Admin: <strong>admin</strong> / <strong>admin123</strong></small>
-            </div> -->
         </div>
     </div>
 
@@ -49,7 +43,7 @@
             <form onsubmit="handleLogin(event, 'estudiante')">
                 <div class="form-group">
                     <label>Usuario</label>
-                    <input type="text" id="user-estudiante" placeholder="ej: usuario1" required>
+                    <input type="text" id="user-estudiante" placeholder="ej: admin" required>
                 </div>
                 <div class="form-group">
                     <label>Contraseña</label>
@@ -86,6 +80,8 @@
     <script src="auth.js"></script>
     <script>
         function openModal(role) {
+            // Cerrar todos los modales primero
+            document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
             document.getElementById(`modal-${role}`).classList.add('active');
             document.getElementById(`user-${role}`).focus();
         }
@@ -94,7 +90,7 @@
             document.getElementById(`modal-${role}`).classList.remove('active');
         }
 
-        // Cerrar modal al hacer clic fuera
+        // Cerrar al hacer clic fuera
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', e => {
                 if (e.target === modal) closeModal(modal.id.replace('modal-', ''));
