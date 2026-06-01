@@ -150,23 +150,29 @@ function updateSchedule() {
 function toggleSchedule() {
     scheduleVisible = !scheduleVisible;
     const drawer = document.getElementById('schedule-drawer');
-    const canvas = document.getElementById('canvas-container');
     const text = document.getElementById('btn-text');
+    
     if(!scheduleVisible){
-        drawer.style.height = '0';
-        canvas.style.height = 'calc(100% - 50px)';
+        drawer.style.height = '0px';
         text.innerHTML = 'Restaurar horarios';
     } else {
-        drawer.style.height = '280px';
-        canvas.style.height = 'calc(100% - 330px)';
+        drawer.style.height = '360px';
         text.innerHTML = 'Maximizar 3D';
     }
-    setTimeout(() => {
-        camera.aspect = window.innerWidth / (window.innerHeight - (scheduleVisible ? 330 : 50));
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight - (scheduleVisible ? 330 : 50));
-    }, 400);
+    setTimeout(updateRendererSize, 350);
 }
+
+function updateRendererSize() {
+    if (!renderer || !camera) return;
+    const drawerHeight = scheduleVisible ? 360 : 70;
+    const newHeight = window.innerHeight - drawerHeight;
+
+    camera.aspect = window.innerWidth / newHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, newHeight);
+}
+
+window.addEventListener('resize', updateRendererSize);
 
 function animate() {
     requestAnimationFrame(animate);
